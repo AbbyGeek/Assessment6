@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "BringDish";
+}
+<!--VALIDATE-->
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $("#number").keyup(function () {
+                var str = this.value;
+                validateNum(str);
+            });
+
+            //function for validating phone number (not fucking working. The keyup function works fine but this doesn't even thoug they're the EXACT SAME THING)
+        //    $("#form").submit(function (event) {
+        //        var NumReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+        //        var num = "#number";
+        //        var res = NumReg.test(num);
+        //        console.log(res);
+        //        if (res === false) {
+        //            event.preventDefault();
+        //            alert("invalid phone number");
+        //        } else {
+        //            alert("passed")
+        //            console.log(NumReg.test(num));
+        //        }
+        //    });
+        });
+
+
+        function validateNum(str) {
+            var NumReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+            var num = str;
+            if (!NumReg.test(num)) {
+                // Make label red
+                $("#numLabel").css("color", "red");
+                console.log(NumReg.test(num));
+            } else {
+                //make label green
+                $("#numLabel").css("color", "green");
+                console.log(NumReg.test(num));
+            }
+        }
+        
+
+
+
+    </script>
+
+</head>
+
+<h2>BringDish</h2>
+
+<form action="/Home/DishLanding" method="get" name="bringDish" id="form" >
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" /><br />
+
+    <label for="number" id="numLabel">Phone Numer:</label>
+    <input type="text" name="number" id="number"/><br />
+
+    <label for="dishName">Name of dish:</label>
+    <input type="text" name="dishName" /><br />
+
+    <label for="desc">Description of dish</label>
+    <input type="text" name="desc" /><br />
+
+    <!--SELECTED ITEMS NOT TRANSLATING THROUGH MODEL CORRECTLY-->
+    <label for="options">Additional information</label><br />
+    <input type="checkbox" name="options" />Gluten Free<br />
+    <input type="checkbox" name="options" />Vegetarian<br />
+    <input type="checkbox" name="options" />Vegan<br />
+    <input type="checkbox" name="options" />Kosher<br />
+
+    <input type="submit" class="btn-primary" value="Submit" id="SubmitBtn" />
+
+</form>

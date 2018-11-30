@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "RSVPLanding";
+}
+
+<h2>RSVPLanding</h2>
+
+<p>Thank you for registering @ViewBag.atendee.FirstName @ViewBag.atendee.LastName</p>
+<p>We're extited to see you on @ViewBag.atendee.Date</p>
+<p>We've sent an email to @ViewBag.atendee.Email with additional details about the party</p>
+<br />
+<p>@ViewBag.atendee.FirstName , If you would like to sign up to bring a dish to the party, please select the link below</p>
+<button><li>@Html.ActionLink("Bring a dish!", "BringDish", "Home")</li></button>
