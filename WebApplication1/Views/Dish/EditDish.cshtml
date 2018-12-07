@@ -1,0 +1,27 @@
+﻿@model WebApplication1.Models.DishTable
+
+
+@{
+    ViewBag.Title = "EditDish";
+}
+
+<h2>Edit Dish</h2>
+
+<form action="~/Dish/SaveChanges" method="post">
+    Guest Name: <input type="text" name="PersonName" value="@Model.PersonName" placeholder="@Model.PersonName" /><br />
+    Phone Number: <input type="text" name="PhoneNumber" value="@Model.PhoneNumber" placeholder="@Model.PhoneNumber" /><br />
+    Dish Name: <input type="text" name="DishName" value="@Model.DishName" placeholder="@Model.DishName" /><br />
+
+    Dish Description: <input type="text" name="DishDescription" value="@Model.DishDescription" placeholder="@Model.DishDescription" /><br />
+
+    <label for="options">Additional information</label><br />
+    <input type="radio" name="Gluten Free" value="@Model.Option"/>Gluten Free<br />
+    <input type="radio" name="Vegetarian" value="@Model.Option"/>Vegetarian<br />
+    <input type="radio" name="Vegan" value="@Model.Option"/>Vegan<br />
+    <input type="radio" name="Kosher" value="@Model.Option"/>Kosher<br />
+
+    <input type="hidden" name="DishID" value="@Model.DishID" />
+
+
+    <button type="submit">SAVE</button>
+</form>

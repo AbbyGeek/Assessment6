@@ -1,0 +1,27 @@
+﻿@model WebApplication1.Models.GuestTable
+
+
+@{
+    ViewBag.Title = "EditGuest";
+}
+<h2>Edit Guest</h2>
+
+<form action="~/Database/SaveChanges" method="post">
+    <input type="text" name="FirstName" value="@Model.FirstName" placeholder="@Model.FirstName" /><br />
+    <input type="text" name="LastNAme" value="@Model.LastNAme" placeholder="@Model.LastNAme" /><br />
+    <input type="text" name="Email" value="@Model.Email" placeholder="@Model.Email" /><br />
+
+    <input type="radio" name="AttendanceDate" value="@Model.AttendanceDate" placeholder="@Model.AttendanceDate" />12/15/2018<br />
+    <input type="radio" name="AttendanceDate" value="@Model.AttendanceDate" placeholder="@Model.AttendanceDate" />12/22/2018<br />
+
+
+    <input type="Radio" name="Guest" value="@Model.Guest" placeholder="@Model.Guest" />Yes<br />
+    <input type="Radio" name="Guest" value="@Model.Guest" placeholder="@Model.Guest" />No<br />
+
+    <input type="hidden" name="GuestID" value="@Model.GuestID" />
+
+
+
+
+    <button type="submit">SAVE</button>
+</form>

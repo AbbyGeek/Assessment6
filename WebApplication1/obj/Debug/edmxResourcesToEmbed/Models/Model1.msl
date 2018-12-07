@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Ass7ModelStoreContainer" CdmEntityContainer="Ass7Entities">
+    <EntitySetMapping Name="DishTables">
+      <EntityTypeMapping TypeName="Ass7Model.DishTable">
+        <MappingFragment StoreEntitySet="DishTable">
+          <ScalarProperty Name="DishID" ColumnName="DishID" />
+          <ScalarProperty Name="PersonName" ColumnName="PersonName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DishName" ColumnName="DishName" />
+          <ScalarProperty Name="DishDescription" ColumnName="DishDescription" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuestTables">
+      <EntityTypeMapping TypeName="Ass7Model.GuestTable">
+        <MappingFragment StoreEntitySet="GuestTable">
+          <ScalarProperty Name="GuestID" ColumnName="GuestID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastNAme" ColumnName="LastNAme" />
+          <ScalarProperty Name="AttendanceDate" ColumnName="AttendanceDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Guest" ColumnName="Guest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

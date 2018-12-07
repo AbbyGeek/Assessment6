@@ -15,19 +15,18 @@
             });
 
             //function for validating phone number (not fucking working. The keyup function works fine but this doesn't even thoug they're the EXACT SAME THING)
-        //    $("#form").submit(function (event) {
-        //        var NumReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
-        //        var num = "#number";
-        //        var res = NumReg.test(num);
-        //        console.log(res);
-        //        if (res === false) {
-        //            event.preventDefault();
-        //            alert("invalid phone number");
-        //        } else {
-        //            alert("passed")
-        //            console.log(NumReg.test(num));
-        //        }
-        //    });
+            $("#form").submit(function (event) {
+                var NumReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+                var num = $("#number").val();
+                var res = NumReg.test(num);
+                console.log(res);
+                if (res === false) {
+                    event.preventDefault();
+                    alert("invalid phone number");
+                } else {
+                    console.log(NumReg.test(num));
+                }
+            });
         });
 
 
@@ -54,26 +53,26 @@
 
 <h2>BringDish</h2>
 
-<form action="/Home/DishLanding" method="get" name="bringDish" id="form" >
+<form action="/Dish/AddDish" method="get" name="bringDish" id="form" >
 
-    <label for="name">Name:</label>
-    <input type="text" name="name" /><br />
+    <label for="PersonName">Name:</label>
+    <input type="text" name="PersonName" /><br />
 
-    <label for="number" id="numLabel">Phone Numer:</label>
-    <input type="text" name="number" id="number"/><br />
+    <label for="PhoneNumber" id="numLabel">Phone Numer:</label>
+    <input type="text" name="PhoneNumber" id="number"/><br />
 
     <label for="dishName">Name of dish:</label>
     <input type="text" name="dishName" /><br />
 
-    <label for="desc">Description of dish</label>
-    <input type="text" name="desc" /><br />
+    <label for="DishDescription">Description of dish</label>
+    <input type="text" name="DishDescription" /><br />
 
     <!--SELECTED ITEMS NOT TRANSLATING THROUGH MODEL CORRECTLY-->
     <label for="options">Additional information</label><br />
-    <input type="checkbox" name="options" />Gluten Free<br />
-    <input type="checkbox" name="options" />Vegetarian<br />
-    <input type="checkbox" name="options" />Vegan<br />
-    <input type="checkbox" name="options" />Kosher<br />
+    <input type="radio" name="options" />Gluten Free<br />
+    <input type="radio" name="options" />Vegetarian<br />
+    <input type="radio" name="options" />Vegan<br />
+    <input type="radio" name="options" />Kosher<br />
 
     <input type="submit" class="btn-primary" value="Submit" id="SubmitBtn" />
 

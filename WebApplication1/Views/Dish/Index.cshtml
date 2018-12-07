@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Home</h2>
+
+<h2>View Database</h2>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Dish</th>
+        <th>Description</th>
+    </tr>
+
+
+    @foreach (var x in ViewBag.DishTable)
+    {
+        <tr>
+            <td>@x.PersonName</td>
+            <td>@x.DishName</td>
+            <td>@x.DishDescription</td>
+            <td>@x.Option</td>
+
+            <td><a href="~/Dish/EditDish?ID=@x.DishID" class="btn-primary">Edit</a></td>
+            <td><a href="~/Dish/DeleteDish?ID=@x.DishID" class="btn-block">Delete</a></td>
+        </tr>
+
+    }
+</table>
+<p><a href="~/Home/BringDish" class="btn-primary">Add a Dish</a></p>

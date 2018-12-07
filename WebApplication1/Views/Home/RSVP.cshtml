@@ -13,23 +13,10 @@
                 var str = this.value;
                 validateEmail(str);
             });
-
-            //$(document).ready(function () {
-            //    // not working!
-            //    $("#attending").click(function () {
-            //        var x = document.getElementsById("#yesAttend");
-            //        if ($('#attending').is('checked')) {
-            //            $(x).show();
-            //        } else {
-            //            $(x).hide();
-            //        }
-            //    });
-            //});
         });
 
         function validateEmail(str) {
             var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
-            var box = "#email";
             if (!emailReg.test(str)) {
                 // Make label red
                 $("#emailLabel").css("color", "red");
@@ -44,8 +31,8 @@
 
         var onward = function onward() {
             var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
-            var email = "email";
-            if (emailReg.test(email)) {
+            var email = $( "#email" ).val();
+            if (!emailReg.test(email)) {
                 event.preventDefault();
                 alert("Email is invalid");
             }
@@ -58,34 +45,48 @@
 </head>
 
 <!--RUN VALIDATION METHOD ON SUBMIT-->
-<form action="/Home/RSVPLanding" method="get" name="rsvp" onsubmit="return onward()">
+<form action="/Database/AddGuest" method="get" name="rsvp" onsubmit="return onward()">
 
     <label for="firstName">First Name</label><br />
-    <input type="text" name="firstName" required /><br />
+    <input type="text" name="firstName" /><br />
 
     <label for="lastName">Last Name</label><br />
-    <input type="text" name="lastName" required/><br />
+    <input type="text" name="lastName" /><br />
 
     <label for="email" id="emailLabel">Email</label><br />
-    <input type="text" name="email" id="email" required/><br />
+    <input type="text" name="email" id="email" required /><br />
 
     <label for="attending">Are you attending?</label><br />
-    <input type="checkbox" name="attending" id="attending" checked/>Yes<br />
+    <input type="checkbox" id="attending" onclick="ShowDates()" required>Yes<br />
 
     <!--IF ATTENDING GIVE TWO DATE OPTIONS-->
-    <label for='date' id="yesAttend">Select the date you will be attending</label><br>
-    <input type='radio' name='date' id="yesAttend">December 15<br>
-    <input type='radio' name='date' id="yesAttend">December 22<br />
+    <div id="dates" style="display:none">
+        <label for='date' id="yesAttend">Select the date you will be attending</label><br>
+        <input type='radio' name='date' id="yesAttend">December 15<br>
+        <input type='radio' name='date' id="yesAttend">December 22<br />
+    </div>
+
+    <script>
+        function ShowDates() {
+            var checkbox = document.getElementById("attending");
+            var dates = document.getElementById("dates");
+            if (checkbox.checked == true) {
+                dates.style.display = "block";
+            } else {
+                dates.style.display = "none";
+            }
+        }
+    </script>
 
     <!--IF NOT ATTENDING, CALL USER A RUDE NAME OR SOMETHING-->
 
     <label for="guest">Are you bringing a guest?</label><br />
-    <input type="radio" name="guest" />Yes<br />
-    <input type="radio" name="guest" />No<br />
+    <input type="checkbox" name="guest" id="guestAsk" />Yes<br />
 
-    <!--IF YES, PROVIDE FORM TO REGISTER GUEST-->
-    <label for="guestName">Guest's name?</label>
-    <input type="text" name="guestName" /><br />
+
+    
+
+    
 
 
     <input type="submit" class="btn-primary" value="Submit" id="SubmitBtn" />
